@@ -1,0 +1,98 @@
+/*
+ * scheduler.h
+ *
+ *  Created on: Nov 24, 2023
+ *      Author: thao2
+ */
+
+#ifndef INC_SCHEDULER_H_
+#define INC_SCHEDULER_H_
+
+#include <stdio.h>
+// typedef of sTask
+typedef struct {
+	// Pointer to task (must be a 'void (void)' function)
+	void (*pTask)(void);
+	// Delay (ticks) until the function will (next) be run
+	uint32_t Delay;
+	// Interval (ticks) between subsequent runs.
+	uint32_t Period;
+	// Incremented (by scheduler) when task is due to execute
+	uint8_t RunMe;
+	// This is a hint to solve the question below.
+	uint32_t TaskID;
+} sTask;
+
+// define some constant
+// MUST BE ADJUSTED FOR EACH NEW PROJECT
+#define SCH_MAX_TASKS	40
+#define NO_TASK_ID		0
+
+#define ERROR_SCH_TOO_MANY_TASKS 1
+#define ERROR_SCH_WAITING_FOR_SLAVE_TO_ACK 2
+#define ERROR_SCH_WAITING_FOR_START_COMMAND_FROM_MASTER 3
+#define ERROR_SCH_ONE_OR_MORE_SLAVES_DID_NOT_START 4
+#define ERROR_SCH_LOST_SLAVE 5
+#define ERROR_SCH_CAN_BUS_ERROR 6
+#define ERROR_I2C_WRITE_BYTE_AT24C64 7
+
+
+// declaration variable
+unsigned char Error_code_G;
+
+
+
+// declaration function
+void SCH_Init(void);
+void SCH_Update(void);
+void SCH_Add_Task(void (*pFunction)(), unsigned int DELAY, unsigned int PERIOD);
+void SCH_Dispatch_Tasks(void);
+unsigned char SCH_Delete_Task(const tByte TASK_INDEX);
+void SCH_Go_To_Sleep();
+void SCH_Report_Status(void){
+#ifdef SCH_REPORT_ERRORS
+	// ONLY APPLLIES IF WE ARE REPORTING ERRORS
+	// Check for a new error code
+	if (Error_code_G != Last_error_code_G){
+		// Negative logic on LEDs assumed
+		Error_port = 255 - Error_code_G;
+		Last_error_code_G = Error_code_G;
+		if (Error_code_G != 0){
+			Error_tick_count_G = 60000;
+		} else {
+			Error_tick_count_G = 0;
+		}
+	} else {
+		if (Error_tick_count_G != 0){
+			if (--Error_tick_count == 0){
+				Error_code_G = 0; // reset error code
+			}
+		}
+	}
+#endif
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif /* INC_SCHEDULER_H_ */

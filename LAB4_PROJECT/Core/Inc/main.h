@@ -54,12 +54,32 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+// Comment this line out if error reporting is NOT required
+// #define SCH_REPORT_ERRORS
+// Where error reporting is required, the port on which error codes will be displayed
+// is also determined via main.h
+//#ifdef SCH_REPORT_ERROS
+// The port on which error codes will be displayed
+// ONLY USED IF ERRORS ARE REPORTED
+//#define Error_port PORTA
+//#endif
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_RED_Pin GPIO_PIN_5
-#define LED_RED_GPIO_Port GPIOA
+#define LED_STATUS_Pin GPIO_PIN_2
+#define LED_STATUS_GPIO_Port GPIOA
+#define TASK0_Pin GPIO_PIN_3
+#define TASK0_GPIO_Port GPIOA
+#define TASK1_Pin GPIO_PIN_4
+#define TASK1_GPIO_Port GPIOA
+#define TASK2_Pin GPIO_PIN_5
+#define TASK2_GPIO_Port GPIOA
+#define TASK3_Pin GPIO_PIN_6
+#define TASK3_GPIO_Port GPIOA
+#define TASK4_Pin GPIO_PIN_7
+#define TASK4_GPIO_Port GPIOA
+#define INPUT_Pin GPIO_PIN_0
+#define INPUT_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
