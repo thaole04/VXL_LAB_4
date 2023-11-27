@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020070  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0001109c  00000000  00000000  00020099  2**0
+ 12 .debug_info   000110a2  00000000  00000000  00020099  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002896  00000000  00000000  00031135  2**0
+ 13 .debug_abbrev 000028a9  00000000  00000000  0003113b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000e08  00000000  00000000  000339d0  2**3
+ 14 .debug_aranges 00000e08  00000000  00000000  000339e8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_macro  00019592  00000000  00000000  000347d8  2**0
+ 15 .debug_macro  00019592  00000000  00000000  000347f0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_line   000103f8  00000000  00000000  0004dd6a  2**0
+ 16 .debug_line   000103f8  00000000  00000000  0004dd82  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_str    0008a66f  00000000  00000000  0005e162  2**0
+ 17 .debug_str    0008a66f  00000000  00000000  0005e17a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .comment      00000053  00000000  00000000  000e87d1  2**0
+ 18 .comment      00000053  00000000  00000000  000e87e9  2**0
                   CONTENTS, READONLY
- 19 .debug_ranges 00000cd8  00000000  00000000  000e8828  2**3
+ 19 .debug_ranges 00000cd8  00000000  00000000  000e8840  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00003fd8  00000000  00000000  000e9500  2**2
+ 20 .debug_frame  00003fd8  00000000  00000000  000e9518  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2257,7 +2257,7 @@ void task4() {
 08000d48 <_write>:
 #include "uart.h"
 
-extern UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart1;
 
 int _write(int file, char *ptr, int len)
 {

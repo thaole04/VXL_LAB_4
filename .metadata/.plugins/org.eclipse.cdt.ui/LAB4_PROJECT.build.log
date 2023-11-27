@@ -1,5 +1,8 @@
-22:48:39 **** Incremental Build of configuration Debug for project LAB4_PROJECT ****
+16:00:13 **** Incremental Build of configuration Debug for project LAB4_PROJECT ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/global.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/global.d" -MT"Core/Src/global.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/global.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
 arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/task.o"
 arm-none-eabi-gcc -o "LAB4_PROJECT.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\thao2\Desktop\Study\hcmut\HK231\VXL\thuc_hanh\Lab\VXL_LAB_4\LAB4_PROJECT\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB4_PROJECT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LAB4_PROJECT.elf
@@ -12,12 +15,12 @@ arm-none-eabi-objcopy  -O ihex  LAB4_PROJECT.elf  "LAB4_PROJECT.hex"
 arm-none-eabi-objcopy  -O binary  LAB4_PROJECT.elf  "LAB4_PROJECT.bin"
 Finished building: default.size.stdout
  
-Finished building: LAB4_PROJECT.hex
 Finished building: LAB4_PROJECT.bin
+Finished building: LAB4_PROJECT.hex
  
  
 Finished building: LAB4_PROJECT.list
  
 
-22:48:40 Build Finished. 0 errors, 0 warnings. (took 806ms)
+16:00:14 Build Finished. 0 errors, 0 warnings. (took 957ms)
 
